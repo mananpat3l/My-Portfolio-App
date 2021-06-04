@@ -1,0 +1,128 @@
+
+main, .Sum {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  
+}
+.App {
+  max-width: 100%;
+  margin: auto;
+}
+
+.App, #diceSelector, .RollButton, #sideSelector, #blankDice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Result{
+  flex-direction: column;
+  padding: auto;
+  align-self:initial;
+
+}
+
+
+#diceArray {
+  display: flex;
+  flex-flow: wrap;
+  width:400px;
+  align-items: center;  
+  justify-content: space-around;
+  perspective: 1000px;
+}
+
+.Dice {
+  margin: 2px;
+}
+
+#blankDiceNumber {
+  background-color:white;
+  width: 100px;
+  height: 54px;
+  text-align: center;
+  font-family: 'Domine';
+  font-size: 50px;
+  font-weight: 700;
+  margin: auto;
+}
+
+#blankDice {
+  background-image: url('images/blankDie.png');
+  width: 104px;
+  height: 104px;
+}
+
+#rollButton { font-family: 'Stalinist One';}
+
+h1 {  
+  font-family: 'Lobster', cursive;
+  background-image: url("images/dice_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  font-size: 40px;
+  width: 100%;
+  color:darkblue;
+  text-align: center;
+  margin: 0;
+}
+
+#titleBacking {
+  border-radius: 15px;
+  padding: 5px;
+  width: 500px;
+}
+
+#selectorHeading, #resultTitle {
+  font-family: "Permanent Marker";
+  border: 15px solid white;
+  padding: 5px;
+  color:blue;
+  text-align: center;
+  width: 200px;
+  margin: 20px 10px;
+}
+
+#rollButton {
+  font-size: 25px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: darkblue;
+  color:white;
+}
+
+#rollButtonLogo {
+  width: 20px;
+  vertical-align: middle;
+  padding-right: 25px;
+}
+
+.NumberLabel {
+  font-family: 'Domine', serif;
+  font-weight: 700;
+  background-color: white;
+  border: 5px solid darkblue;
+  border-radius: 15px;
+  padding: 10px;
+  backface-visibility: hidden;
+  width: 120px;
+  text-align: center;
+  font-size: 40px;
+}
+
+#upArrow:hover {
+  transform: translateY(-5px);
+  
+}
+
+#downArrow:hover {
+  transform: translateY(5px);
+  
+}
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/styles.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <title>Patel's Location</title>
+        <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-replace-svg="nest"></script>
+        <script src="js/map.js"></script>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+				<img src="image/me1.PNG" class="nav__img"><br>
+                    <a href="index.html#home" class="nav__logo">Manan Patel</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="index.html#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="index.html#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="index.html#work" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="index.html#game" class="nav__link">Games</a></li>
+                        <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                        
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">My Location is<br><span class="home__title-color">Hamilton</span>
+                    ,<br> And My other working locations are as follows:<br>
+                Also User can add their location and verify if they can work there.</h1>
+                    </div>
+                </section>
+                    <section class="about section" id="contact">
+                    <div class="about__container bd-grid">
+                        <input
+                     id="pac-input"
+                     class="controls"
+                     type="text"
+                     autocomplete="on"
+                     placeholder="Search Box" /><br><button type="button" onClick="addmap()">Add Location</button><br>
+                    <div id="map"></div>
+                    </div>
+                    </section>
+                    </main>
+                    <footer class="footer">
+                        <p class="footer__title">Manan Patel</p>
+                        <a href="map.html" id="map">Hamilon, ON, CA</a>
+                        <div class="footer__social">
+                            <a href="https://www.linkedin.com/in/manan-p-904290137/" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
+                            <a href="https://github.com/mananpat3l" class="footer__icon"><i class='bx bxl-github' ></i></a>
+                            <a href="https://www.facebook.com/manan.patel.980/" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                            <a href="https://www.instagram.com/lifeofpatel/" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                            <a href="https://twitter.com/lifeofpatelxo" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+                        </div>
+                        <p>&#169; 2021 copyright all right reserved</p>
+                    </footer>
+                     <!--===== SCROLL REVEAL =====-->
+            <script src="https://unpkg.com/scrollreveal"></script>
+    
+            <!--===== MAIN JS =====-->
+            <script src="js/main.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPIcsorQ17YFa5hfYq0Au2KOm0HPor0EE&callback=initMap&libraries=places&v=weekly"async></script>
+        </body>
+    </html>
+
+

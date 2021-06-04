@@ -1,0 +1,196 @@
+<!-- I,Manan Patel, 000826892, certify that all work done is my own and that I have not copied it from
+anywhere else. I also certify that I have not allowed anyone to copy my code. -->
+<html>
+    <head>
+        <title>Rolling the Dice</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/style1.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+   <body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+       class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            numDice: 1,
+            numSides: 2,
+            randomNumbers: []
+          };
+        }
+
+        componentDidMount() {
+          var tempRandomNumbers = [];
+          for(var i = 0 ; i < this.state.numDice ; i++) {
+            tempRandomNumbers.push({id: i, value: Math.floor((Math.random() * this.state.numSides)+1)});
+            
+          }
+          this.setState({randomNumbers: tempRandomNumbers});
+        }
+        
+        handleRollButton_Click = (e) => {
+          var tempRandomNumbers = [];
+          for(var i = 0 ; i < this.state.numDice ; i++) {
+            tempRandomNumbers.push({id: i, value: Math.floor((Math.random() * this.state.numSides+1))});
+          }
+          this.setState({randomNumbers: tempRandomNumbers});
+        }
+
+        handleDiceUpArrow_Click = (e) => {
+          if(this.state.numDice < 10) {
+            this.setState({numDice: this.state.numDice + 1});
+          }
+        }
+
+        handleDiceDownArrow_Click = (e) => {
+          if(this.state.numDice > 1) {
+            this.setState({numDice: this.state.numDice - 1});
+          }
+        }
+
+        handleSidesUpArrow_Click = (e) => {
+          if(this.state.numSides < 6) {
+            this.setState({numSides: this.state.numSides + 1});
+          }
+        }
+
+        handleSidesDownArrow_Click = (e) => {
+          if(this.state.numSides > 1) {
+            this.setState({numSides: this.state.numSides - 1});
+          }
+        }
+
+        render() {
+          return(
+            <div className="App">
+           
+              <div id="titleBacking"><marquee behaviour="alternate"><h1>REACT Dice Roller Game</h1></marquee></div>
+              <main>
+    
+                <div id="diceSelector">
+                  <h2 id="selectorHeading">Adjust Number of Dice</h2>
+                  <UpArrow handleClick={this.handleDiceUpArrow_Click} />
+                  <NumberLabel value={this.state.numDice} />
+                  <DownArrow handleClick={this.handleDiceDownArrow_Click}/>
+                </div>
+
+                <div id="sideSelector">
+                  <h2 id="selectorHeading">Adjust Number of Sides</h2>
+                  <UpArrow handleClick={this.handleSidesUpArrow_Click} />
+                  <NumberLabel value={this.state.numSides} />
+                  <DownArrow handleClick={this.handleSidesDownArrow_Click}/>
+                </div>
+                
+              </main>
+
+              <RollButton handleClick={this.handleRollButton_Click}/>
+
+              <Result randomNumbers={this.state.randomNumbers} />
+            </div>
+          );
+        }
+      }
+
+    
+      const Result = (props) => (
+     
+         <div className="Result">
+          <Sum values={props.randomNumbers} />
+          <div id="diceArray">
+            {props.randomNumbers.map(
+              num => (
+                <Dice key={num.id} value={num.value}/>
+              )
+            )}
+          </div>
+        </div>
+      
+       
+      );
+
+      const Dice = (props) => {
+        if(props.value > 9){
+          return(
+            <div className="Dice">
+              <div id="blankDice">
+                <div id="blankDiceNumber">{props.value}</div>
+              </div>
+            </div>
+          );
+        } else {
+          return(
+            <div className="Dice">
+              <img alt="dice" src={`images/die${props.value}.png`} />
+            </div>
+          );
+        }
+
+        
+      }
+
+    
+      const Sum = (props) => {
+        let sum = 0;
+        for (var i=0; i< props.values.length ; i++) {
+          sum = sum + props.values[i].value; 
+        }
+
+        return(
+          <div className="Sum">
+            <h2 id="resultTitle">Resulting Sum:</h2> 
+            <NumberLabel value={sum} />
+          </div>
+        );
+      }
+
+    
+      const RollButton = (props) => (
+        <div className="RollButton">
+          <button id="rollButton" type="button" onClick={props.handleClick}>ROLL</button>
+        </div>
+      );
+      
+      const NumberLabel = (props) => (
+        <div className="NumberLabel">
+          {props.value}
+        </div>
+      );
+
+      const UpArrow = (props) => (
+        <div className="UpArrow">
+            
+          <img 
+            id="upArrow"
+            alt="upArrow" 
+            src="images/up.png" 
+            width="100" 
+            height="70"
+            onClick={props.handleClick}
+          />
+        </div>
+      );
+ 
+      const DownArrow = (props) => (
+        <div className="DownArrow">
+          <img 
+            id="downArrow"
+            alt="downArrow" 
+            src="images/down.png" 
+            width="100" 
+            height="70"
+            onClick={props.handleClick}
+          />
+        </div>
+      );
+
+      ReactDOM.render(<App />, document.getElementById('container'));
+    </script>
+
+   </body> 
+</html>
